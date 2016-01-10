@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function start() {
+        startDate = new Date().getTime();
+
+        seconds = 0;
+        minutes = 0;
+
+        timerID = setInterval(timeCounter, 1000);
+      }
+
+      function stop() {
+        clearInterval(timerID);
+        return;
+      }
+
+      function timeCounter() {
+        if(seconds >= <%= @time %>) {
+          stop();
+          return;
+        }
+
+        var time = new Date().getTime() - startDate;
+
+        seconds = parseInt(Math.floor(time / 100) / 10);
+
+        if(seconds % 60 == 0) { minutes += 1; }
+
+        document.getElementById("seconds").innerHTML = seconds;
+        document.getElementById("minutes").innerHTML = minutes;
+      }
+    </script>
+
+    <h1 id="minutes"></h1>
+    <h1 id="seconds"></h1>
+
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+  </body>
+</html>
