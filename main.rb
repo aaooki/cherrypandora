@@ -1,3 +1,4 @@
 get '/' do
-  "Hello, World"
+  @time = 25
+  erb :timer
 end
