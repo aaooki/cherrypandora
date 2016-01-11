@@ -5,7 +5,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    concurrent-ruby (1.0.0)
     execjs (2.6.0)
+    json (1.8.3)
+    libv8 (3.3.10.4)
     minitest (5.8.3)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -13,21 +16,35 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.4.2)
+    sass (3.4.20)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sprockets (3.5.2)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    therubyracer (0.10.2)
+      libv8 (~> 3.3.10)
     tilt (2.0.2)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-script
+  json
   minitest
   rack-test
   rake
+  sass
   sinatra
+  sprockets
+  therubyracer
+  uglifier
 
 BUNDLED WITH
    1.10.6

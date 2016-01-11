@@ -1,5 +1,7 @@
 require 'bundler'
 Bundler.require
-require './main'
 
+Dir.glob('./**/*.rb').each { |file| require file }
+
+use Assets
 run Sinatra::Application
