@@ -1,0 +1,10 @@
+{
+  "name": "panadora",
+  "version": "2.11.6",
+  "license": "MIT",
+  "dependencies": {
+    "webfontloader": "1.6.10",
+    "foundation": "5.5.3",
+    "font-awesome": "~4.5.0"
+  }
+}
