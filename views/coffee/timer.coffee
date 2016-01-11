@@ -2,6 +2,7 @@
 
 @start = (limit) ->
   window.startDate = new Date().getTime()
+  window.elapsedSeconds = 0
   window.seconds = 0
   window.minutes = 0
   window.limit = limit
@@ -13,16 +14,18 @@
   return
 
 timeCounter = ->
-  if seconds >= limit
+  if elapsedSeconds >= limit
     stop()
     return
 
   time = new Date().getTime() - startDate
 
-  window.seconds = parseInt(Math.floor(time / 100) / 10)
+  window.elapsedSeconds = parseInt(Math.floor(time / 100) / 10)
 
-  if seconds % 60 == 0
-    minutes += 1
+  allTheTime = elapsedSeconds
+  minutes = parseInt(allTheTime/60)
+  allTheTime -= minutes * 60
+  seconds = parseInt(allTheTime)
 
   document.getElementById('seconds').innerHTML = seconds
   document.getElementById('minutes').innerHTML = minutes
