@@ -27,6 +27,9 @@ timeCounter = ->
   allTheTime -= minutes * 60
   seconds = parseInt(allTheTime)
 
+  minutes = '0' + minutes if minutes < 10
+  seconds = '0' + seconds if seconds < 10
+
   document.getElementById('seconds').innerHTML = seconds
   document.getElementById('minutes').innerHTML = minutes
 
