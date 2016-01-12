@@ -36,7 +36,7 @@
   return
 
 @stop = ->
-  clearInterval timerID
+  clearInterval timerID if timerID
 
   # unlock editing timer panels
   document.getElementById('minutes').contentEditable='true'
@@ -53,9 +53,9 @@ timeCounter = ->
     Notify("Finished Your Session", "Great! You can take a rest now.")
     return
 
-  time = new Date().getTime() - startTime
+  currentTime = new Date().getTime() - startTime
 
-  window.elapsedSeconds = parseInt(Math.floor(time / 100) / 10)
+  window.elapsedSeconds = parseInt(Math.floor(currentTime / 100) / 10)
 
   allTheTime = elapsedSeconds
   minutes = parseInt(allTheTime/60)

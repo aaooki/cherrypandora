@@ -10,8 +10,9 @@ else
   notification.requestPermission (permission) ->
 
 # Notification Function
-@Notify = (titleText, bodyText) ->
-  document.title = titleText
+@Notify = (msgTitle, msgBody) ->
+  # Change window title
+  document.title = msgTitle
 
   # Not supported
   if 'undefined' == typeof notification
@@ -19,14 +20,16 @@ else
     window.navigator.vibrate(300)
     return false
 
-  noty = new notification(titleText,
-    body: bodyText
+  noty = new notification(msgTitle,
+    body: msgBody
     dir: 'auto'
     lang: 'EN'
     tag: 'notificationPopup'
     icon: '')
 
   noty.onclick = ->
+    window.focus()
+    this.close()
     console.log 'notification.Click'
     return
 
