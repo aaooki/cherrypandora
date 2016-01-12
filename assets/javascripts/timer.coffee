@@ -4,6 +4,7 @@
   document.getElementById('minutes').innerHTML = '25'
   document.getElementById('seconds').innerHTML = '00'
 
+  # Set the switch to stopped mode
   document.getElementById('start-stop-switch').checked = true
   return
 
@@ -40,6 +41,9 @@
   # unlock editing timer panels
   document.getElementById('minutes').contentEditable='true'
   document.getElementById('seconds').contentEditable='true'
+
+  # Reset the switch to stopped mode
+  document.getElementById('start-stop-switch').checked = true
 
   return
 
