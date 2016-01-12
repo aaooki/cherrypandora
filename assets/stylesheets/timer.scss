@@ -1,0 +1,41 @@
+#timer-box {
+	font-family: sans-serif;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 100px;
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
+
+#timer-box > div{
+	padding: 15px;
+	border-radius: 3px;
+	background: $white;
+	display: inline-block;
+}
+
+#timer-box div > span{
+	padding: 15px;
+	display: inline-block;
+}
+
+[contenteditable="true"]:hover { outline: 2px solid $aluminum; }
+
+.switch-on {
+  position: absolute;
+  left: -70px;
+  top: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.switch-off {
+  position: absolute;
+  left: -30px;
+  top: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+}
