@@ -1,3 +1,4 @@
+// Timer
 #timer-box {
 	font-family: sans-serif;
 	display: inline-block;
@@ -22,20 +23,24 @@
 
 [contenteditable="true"]:hover { outline: 2px solid $aluminum; }
 
+// Switch
+.switch label { background: $switch-off-color !important; }
+.switch input:checked + label { background: $switch-on-color !important; }
+
 .switch-on {
   position: absolute;
-  left: -70px;
+  left: -85px;
   top: 10px;
   color: white;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 16px;
 }
 
 .switch-off {
   position: absolute;
-  left: -30px;
+  left: -40px;
   top: 10px;
   color: white;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 16px;
 }

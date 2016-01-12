@@ -11,6 +11,11 @@
 </div>
 
 <div class="text-center">
-  <button onclick="start()" class="button success radius">Start</button>
-  <button onclick="stop()" class="button alert radius">Stop</button>
+  <div class="switch large radius">
+    <input id="start-stop-switch" type="checkbox" onchange="checkSwitch()">
+      <label for="start-stop-switch">
+        <span class="switch-on">Start</span>
+        <span class="switch-off">Stop</span>
+      </label>
+  </div>
 </div>
