@@ -7,3 +7,6 @@
 'use strict'
 
 $(document).foundation()
+
+# # Always hide the alert box
+$('.alert-box').hide()

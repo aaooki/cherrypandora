@@ -1,8 +1,5 @@
 'use strict'
 
-# Always hide the alert box
-$('.alert-box').hide()
-
 # Clear timer panels on focus
 $('#minutes, #seconds').focus ->
   $(this).empty()
