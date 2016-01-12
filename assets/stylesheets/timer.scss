@@ -21,6 +21,11 @@
 	display: inline-block;
 }
 
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 [contenteditable="true"]:hover { outline: 2px solid $aluminum; }
 
 // Switch
