@@ -50,6 +50,7 @@
 timeCounter = ->
   if elapsedSeconds >= timeLimit
     stop()
+    Notify("Finished Your Session", "Great! You can take a rest now.")
     return
 
   time = new Date().getTime() - startTime
