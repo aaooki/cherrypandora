@@ -1,6 +1,14 @@
-<h1 id="minutes"></h1>
+<div class="text-center">
+  <div id="timer-box">
+    <div>
+      <span id="minutes" contenteditable="true"></span>
+        :
+      <span id="seconds" contenteditable="true"></span>
+    </div>
+  </div>
+</div>
 
-<h1 id="seconds"></h1>
-
-<button onclick="start(<%= @time %>)">Start</button>
-<button onclick="stop()">Stop</button>
+<div class="text-center">
+  <button onclick="start(<%= @time %>)" class="button success radius">Start</button>
+  <button onclick="stop()" class="button alert radius">Stop</button>
+</div>
