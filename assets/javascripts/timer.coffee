@@ -1,24 +1,39 @@
 'use strict'
 
-@start = (limit) ->
-  window.startDate = new Date().getTime()
+@start = () ->
+  # Get the input time
+  inputMinutes = parseInt document.getElementById("minutes").innerHTML
+  inputSeconds = parseInt document.getElementById("seconds").innerHTML
+  window.timeLimit = inputMinutes * 60 + inputSeconds
+
+
+  window.startTime = new Date().getTime()
   window.elapsedSeconds = 0
   window.seconds = 0
   window.minutes = 0
-  window.limit = limit
+
+  # lock editing timer panels before starting the counter
+  document.getElementById('minutes').contentEditable='false'
+  document.getElementById('seconds').contentEditable='false'
+
   window.timerID = setInterval(timeCounter, 1000)
   return
 
 @stop = ->
   clearInterval timerID
+
+  # unlock editing timer panels
+  document.getElementById('minutes').contentEditable='true'
+  document.getElementById('seconds').contentEditable='true'
+
   return
 
 timeCounter = ->
-  if elapsedSeconds >= limit
+  if elapsedSeconds >= timeLimit
     stop()
     return
 
-  time = new Date().getTime() - startDate
+  time = new Date().getTime() - startTime
 
   window.elapsedSeconds = parseInt(Math.floor(time / 100) / 10)
 
