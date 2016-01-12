@@ -1,5 +1,10 @@
 'use strict'
 
+@initTimer = () ->
+  document.getElementById('minutes').innerHTML = '25'
+  document.getElementById('seconds').innerHTML = '00'
+  return
+
 @start = () ->
   # Get the input time
   inputMinutes = parseInt document.getElementById("minutes").innerHTML
