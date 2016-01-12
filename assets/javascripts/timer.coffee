@@ -3,6 +3,16 @@
 @initTimer = () ->
   document.getElementById('minutes').innerHTML = '25'
   document.getElementById('seconds').innerHTML = '00'
+
+  document.getElementById('start-stop-switch').checked = true
+  return
+
+@checkSwitch = () ->
+  if document.getElementById('start-stop-switch').checked
+    stop()
+  else
+    start()
+
   return
 
 @start = () ->
