@@ -1,5 +1,18 @@
 'use strict'
 
+# Always hide the alert box
+$('.alert-box').hide()
+
+# Clear timer panels on focus
+$('#minutes, #seconds').focus ->
+  $(this).empty()
+  return
+
+# Validate input
+validateInput = (inputMinutes, inputSeconds) ->
+  return true if inputMinutes >= 0 and inputSeconds >= 0
+  return false
+
 @initTimer = () ->
   document.getElementById('minutes').innerHTML = '25'
   document.getElementById('seconds').innerHTML = '00'
@@ -20,8 +33,16 @@
   # Get the input time
   inputMinutes = parseInt document.getElementById("minutes").innerHTML
   inputSeconds = parseInt document.getElementById("seconds").innerHTML
-  window.timeLimit = inputMinutes * 60 + inputSeconds
 
+  # Manage input validation and error msg
+  $('.alert-box').hide()
+  unless validateInput(inputMinutes, inputSeconds)
+    $('#alert-msg').html("Minutes and Seconds must be positive values!")
+    $('.alert-box').show()
+    stop()
+    return
+
+  window.timeLimit = inputMinutes * 60 + inputSeconds
 
   window.startTime = new Date().getTime()
   window.elapsedSeconds = 0
@@ -36,7 +57,7 @@
   return
 
 @stop = ->
-  clearInterval timerID if timerID
+  clearInterval timerID if typeof timerID != 'undefined'
 
   # unlock editing timer panels
   document.getElementById('minutes').contentEditable='true'
