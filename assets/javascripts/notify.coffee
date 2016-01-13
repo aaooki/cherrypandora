@@ -38,6 +38,7 @@ else
     return
 
   noty.onshow = ->
+    playSound('sounds/bell_ring')
     console.log 'notification.Show'
     return
 
@@ -47,3 +48,11 @@ else
     return
 
   true
+
+# Play a sound file
+playSound = (fileName) ->
+  document.getElementById('notification-sound').innerHTML = '<audio
+    autoplay="autoplay"><source src="' + fileName + '.mp3" type="audio/mpeg"
+    /><source src="' + fileName + '.ogg" type="audio/ogg" /><embed hidden="true"
+    autostart="true" loop="false" src="' + fileName + '.mp3" /></audio>'
+  return
