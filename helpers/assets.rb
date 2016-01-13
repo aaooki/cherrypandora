@@ -30,22 +30,4 @@ class Assets < Sinatra::Base
       settings.assets["#{image}.#{format}"]
     end
   end
-
-  # %w{css js}.each do |format|
-  #   # get "/assets/bower_components/[\w]+/:file.#{format}" do |file|
-  #   get %r{/assets/:file.#{format}} do |file|
-  #     content_type("text/#{format}")
-  #     settings.assets["#{file}.#{format}"]
-  #   end
-  # end
-
-  # get "/assets/hi.css" do
-  #   content_type("text/css")
-  #   settings.assets["hi.css"]
-  # end
-
-  # get "/assets/hi.css" do
-  #   content_type("text/css")
-  #   settings.assets["hi.css"]
-  # end
 end
