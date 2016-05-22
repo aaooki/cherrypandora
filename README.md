@@ -1,3 +1,3 @@
-# panadora
+# Cherry Panadora
 
-[![Build Status](https://travis-ci.org/aasare/panadora.svg?branch=master)](https://travis-ci.org/aasare/panadora)
+[![Build Status](https://travis-ci.org/aasare/cherrypanadora.svg?branch=master)](https://travis-ci.org/aasare/cherrypanadora)
