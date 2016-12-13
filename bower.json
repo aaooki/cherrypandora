@@ -5,6 +5,7 @@
   "dependencies": {
     "webfontloader": "1.6.27",
     "font-awesome": "~4.7.0",
-    "foundation-sites": "^6.2.4"
+    "foundation-sites": "^6.2.4",
+    "motion-ui": "~1.2.2"
   }
 }
