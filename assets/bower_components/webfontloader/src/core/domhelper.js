@@ -92,14 +92,20 @@ goog.scope(function () {
    */
   DomHelper.prototype.whenBodyExists = function(callback) {
     var that = this;
-    var check = function() {
-      if (that.document_.body) {
-        callback();
+
+    if (that.document_.body) {
+      callback();
+    } else {
+      if (that.document_.addEventListener) {
+        that.document_.addEventListener('DOMContentLoaded', callback);
       } else {
-        setTimeout(check, 0);
+        that.document_.attachEvent('onreadystatechange', function () {
+          if (that.document_.readyState == 'interactive' || that.document_.readyState == 'complete') {
+            callback();
+          }
+        });
       }
     }
-    check();
   };
 
   /**
@@ -338,7 +344,7 @@ goog.scope(function () {
       }, 0);
     }
 
-    function onAvailable(callback) {
+    function onStylesheetAvailable(callback) {
       for (var i = 0; i < sheets.length; i++) {
         if (sheets[i].href && sheets[i].href.indexOf(href) !== -1) {
           return callback();
@@ -346,20 +352,41 @@ goog.scope(function () {
       }
 
       setTimeout(function () {
-        onAvailable(callback);
+        onStylesheetAvailable(callback);
+      }, 0);
+    }
+
+    function onMediaAvailable(callback) {
+      for (var i = 0; i < sheets.length; i++) {
+        if (sheets[i].href && sheets[i].href.indexOf(href) !== -1 && sheets[i].media) {
+          /**
+           * @type {string|MediaList|null}
+           */
+          var media = sheets[i].media;
+
+          if (media === "all" || (media.mediaText && media.mediaText === "all")) {
+            return callback();
+          }
+        }
+      }
+
+      setTimeout(function () {
+        onMediaAvailable(callback);
       }, 0);
     }
 
     this.insertInto('head', link);
 
     if (opt_async) {
-      onAvailable(function () {
+      onStylesheetAvailable(function () {
         link.media = "all";
-        // Give another tick to ensure the @media change takes effect.
-        setTimeout(function() {
+        // The media type change doesn't take effect immediately on Chrome, so
+        // we'll query the media attribute on the stylesheet until it changes
+        // to "all".
+        onMediaAvailable(function () {
           asyncResolved = true;
           mayInvokeCallback();
-        }, 0);
+        });
       });
     }
 

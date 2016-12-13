@@ -29,10 +29,49 @@ goog.scope(function () {
       NativeFontWatchRunner = webfont.NativeFontWatchRunner;
 
   /**
-   * @const
-   * @type {boolean}
+   * @type {null|boolean}
    */
-  FontWatcher.SHOULD_USE_NATIVE_LOADER = !!window['FontFace'];
+  FontWatcher.SHOULD_USE_NATIVE_LOADER = null;
+
+  /**
+   * @return {string}
+   */
+  FontWatcher.getUserAgent = function () {
+    return window.navigator.userAgent;
+  };
+
+  /**
+   * @return {string}
+   */
+  FontWatcher.getVendor = function () {
+    return window.navigator.vendor;
+  };
+
+  /**
+   * Returns true if this browser has support for
+   * the CSS font loading API.
+   *
+   * @return {boolean}
+   */
+  FontWatcher.shouldUseNativeLoader = function () {
+    if (FontWatcher.SHOULD_USE_NATIVE_LOADER === null) {
+      if (!!window.FontFace) {
+        var match = /Gecko.*Firefox\/(\d+)/.exec(FontWatcher.getUserAgent());
+        var safari10Match = /OS X.*Version\/10\..*Safari/.exec(FontWatcher.getUserAgent()) && /Apple/.exec(FontWatcher.getVendor());
+
+        if (match) {
+          FontWatcher.SHOULD_USE_NATIVE_LOADER = parseInt(match[1], 10) > 42;
+        } else if (safari10Match) {
+          FontWatcher.SHOULD_USE_NATIVE_LOADER = false;
+        } else {
+          FontWatcher.SHOULD_USE_NATIVE_LOADER = true;
+        }
+      } else {
+        FontWatcher.SHOULD_USE_NATIVE_LOADER = false;
+      }
+    }
+    return FontWatcher.SHOULD_USE_NATIVE_LOADER;
+  };
 
   /**
    * Watches a set of font families.
@@ -67,7 +106,7 @@ goog.scope(function () {
 
       var fontWatchRunner = null;
 
-      if (FontWatcher.SHOULD_USE_NATIVE_LOADER) {
+      if (FontWatcher.shouldUseNativeLoader()) {
         fontWatchRunner = new NativeFontWatchRunner(
             goog.bind(this.fontActive_, this),
             goog.bind(this.fontInactive_, this),
