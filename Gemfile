@@ -1,16 +1,14 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
 gem 'sinatra'
 
-gem "sprockets"
-gem "uglifier"
-gem 'therubyracer'
-
-gem 'sass'
-gem 'coffee-script'
 gem 'json'
+
+gem "sprockets"
+gem 'coffee-script'
+gem "uglifier"
+gem 'sass'
 
 group :test do
   gem 'minitest'
