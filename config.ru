@@ -1,8 +1,5 @@
-require 'bundler'
-Bundler.require
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
-Dir.glob('./{helpers}/*.rb').each { |file| require file }
-require './main'
+require 'cherry_pandora'
 
-use Assets
-run Sinatra::Application
+run CherryPandora::App
