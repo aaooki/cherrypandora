@@ -16,9 +16,12 @@ group :development do
   gem 'shotgun'
 end
 
+group :development, :test do
+  gem 'rake'
+  gem 'byebug'
+end
+
 group :test do
   gem 'minitest'
   gem 'rack-test'
-  gem 'rake'
-  gem 'byebug'
 end
