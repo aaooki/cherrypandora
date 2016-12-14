@@ -1,11 +1,9 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'minitest/autorun'
-require 'rack/test'
-
 require 'bundler'
-Bundler.require :default, :test
+Bundler.require ENV['RACK_ENV']
 
-require_relative '../main'
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 include Rack::Test::Methods

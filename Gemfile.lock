@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    byebug (9.0.6)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -36,6 +37,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   coffee-script
   json
   minitest
