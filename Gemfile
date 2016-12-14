@@ -10,6 +10,12 @@ gem 'coffee-script'
 gem "uglifier"
 gem 'sass'
 
+gem 'omniauth-twitter', require: false
+
+group :development do
+  gem 'shotgun'
+end
+
 group :test do
   gem 'minitest'
   gem 'rack-test'
