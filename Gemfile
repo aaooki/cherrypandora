@@ -10,7 +10,7 @@ gem 'coffee-script'
 gem "uglifier"
 gem 'sass'
 
-gem 'omniauth-twitter', require: false
+gem 'omniauth-twitter'
 
 group :development do
   gem 'shotgun'
