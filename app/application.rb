@@ -41,5 +41,21 @@ module CherryTomato
       logout!
       redirect to '/'
     end
+
+    get '/tracker' do
+      if logged_in?
+        erb :tracker
+      else
+        halt(401, 'Unauthorized')
+      end
+    end
+
+    post '/entry' do
+      if logged_in?
+        puts params[:length]
+      else
+        halt(401, 'Unauthorized')
+      end
+    end
   end
 end
