@@ -3,7 +3,8 @@ module CherryTomato
     attr_reader :container
 
     def initialize
-      rom_cofig = ROM::Configuration.new(:sql, load_db_settings)
+      rom_config = ROM::Configuration.new(:sql, load_db_settings)
+      @container = ROM.container(rom_config)
     end
 
     def repository(repository_name)
