@@ -2,25 +2,18 @@ Dir.glob('./app/**/*.rb').each { |file| require file }
 
 module CherryTomato
   class Application < Sinatra::Base
-    use AssetLoader
+    use AssetsHelper
+    use SessionsHelper
 
-    get '/' do
-      erb :timer
-    end
+    helpers SessionsHelper::UserSession
 
     # Twitter auth
     use OmniAuth::Builder do
-      provider :twitter, 'key', 'secret'
+      provider :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
     end
 
-    configure do
-      enable :sessions
-    end
-
-    helpers do
-      def current_user?
-        session[:user]
-      end
+    get '/' do
+      erb :timer
     end
 
     get '/public' do
@@ -28,7 +21,7 @@ module CherryTomato
     end
 
     get '/private' do
-      halt(401, 'Unauthorized') unless current_user?
+      halt(401, 'Unauthorized') unless logged_in?
       'private'
     end
 
@@ -37,12 +30,24 @@ module CherryTomato
     end
 
     get '/auth/twitter/callback' do
-      session[:user] = true
-      env['omniauth.auth']
+      response = env['omniauth.auth']
+
+      if response
+        user_repo = ROMConfig.new.repository(UserRepository)
+        user = user_repo.by_uid(response.uid)
+        unless user
+          user = user_repo.create(username: response.info.nickname, uid: response.uid)
+        end
+
+        session[:user] = user.to_h
+        redirect to '/'
+      else
+        halt(401, 'Unauthorized')
+      end
     end
 
     get '/logout' do
-      session[:user] = nil
+      logout!
       "Logged out"
     end
   end
