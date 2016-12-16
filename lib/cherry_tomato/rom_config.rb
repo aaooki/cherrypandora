@@ -14,10 +14,10 @@ module CherryTomato
     private
 
     def load_db_settings
-      user = 'root'
-      password = ''
-      host = '127.0.0.1'
-      dbname = 'cherrypandora_dev'
+      user = ENV['DB_USER']
+      password = ENV['DB_PASSWORD']
+      host = ENV['DB_HOST']
+      dbname = ENV['DB_DATABASE']
 
       "postgres://#{host}/#{dbname}?user=#{user}&password=#{password}"
     end
