@@ -10,9 +10,22 @@ gem 'coffee-script'
 gem "uglifier"
 gem 'sass'
 
+gem 'omniauth-twitter'
+
+gem 'pg'
+gem 'rom-repository'
+gem 'rom-sql'
+
+group :development do
+  gem 'shotgun'
+end
+
+group :development, :test do
+  gem 'rake'
+  gem 'byebug'
+end
+
 group :test do
   gem 'minitest'
   gem 'rack-test'
-  gem 'rake'
-  gem 'byebug'
 end
