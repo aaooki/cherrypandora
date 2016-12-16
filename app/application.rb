@@ -16,15 +16,6 @@ module CherryTomato
       erb :timer
     end
 
-    get '/public' do
-      'public'
-    end
-
-    get '/private' do
-      halt(401, 'Unauthorized') unless logged_in?
-      'private'
-    end
-
     get '/login' do
       redirect to("/auth/twitter")
     end
