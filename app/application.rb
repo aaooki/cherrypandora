@@ -39,7 +39,7 @@ module CherryTomato
 
     get '/logout' do
       logout!
-      "Logged out"
+      redirect to '/'
     end
   end
 end
