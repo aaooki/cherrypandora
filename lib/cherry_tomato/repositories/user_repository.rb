@@ -3,11 +3,11 @@ module CherryTomato
     commands :create
 
     def [](id)
-      users.where(id: id).one!
+      users.where(id: id).one
     end
 
     def by_uid(uid)
-      users.where(uid: uid).one!
+      users.where(uid: uid).one
     end
 
     def all
