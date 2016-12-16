@@ -6,7 +6,7 @@ Bundler.require :default, ENV['RACK_ENV']
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 $LOAD_PATH.push File.expand_path("../app", __FILE__)
 
-require 'cherry_pandora'
+require 'cherry_tomato'
 require 'application'
 
-run CherryPandora::Application
+run CherryTomato::Application

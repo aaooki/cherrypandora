@@ -1,4 +1,4 @@
-module CherryPandora
+module CherryTomato
   class AssetLoader < Sinatra::Base
     configure do
       set :assets, (Sprockets::Environment.new { |env|

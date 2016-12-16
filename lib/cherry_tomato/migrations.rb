@@ -1,4 +1,4 @@
-module CherryPandora
+module CherryTomato
   def self.migrate
     ROMConfig.new.container.gateways[:default].tap do |gateway|
       migration = gateway.migration do

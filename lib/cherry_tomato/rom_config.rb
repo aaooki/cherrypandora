@@ -1,4 +1,4 @@
-module CherryPandora
+module CherryTomato
   class ROMConfig
     attr_reader :container
 

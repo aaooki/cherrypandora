@@ -1,4 +1,4 @@
-module CherryPandora
+module CherryTomato
   class User
     attr_reader :id, :username, :uid
 

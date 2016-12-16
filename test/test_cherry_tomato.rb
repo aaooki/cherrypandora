@@ -1,4 +1,4 @@
 require_relative 'test_helper.rb'
 
-class CherryPandoraTest < TestHelper
+class CherryTomatoTest < TestHelper
 end
