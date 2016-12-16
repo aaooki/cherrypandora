@@ -1,5 +1,7 @@
+Dir.glob('./app/**/*.rb').each { |file| require file }
+
 module CherryPandora
-  class App < Sinatra::Base
+  class Application < Sinatra::Base
     use AssetLoader
 
     get '/' do
