@@ -52,7 +52,10 @@ module CherryTomato
 
     post '/entry' do
       if logged_in?
-        puts params[:length]
+        entry_repo = ROMConfig.new.repository(EntryRepository)
+        new_entry = entry_repo.create(length: params[:length], created_at: DateTime.now, user_id: current_user[:id])
+
+        halt(200)
       else
         halt(401, 'Unauthorized')
       end
