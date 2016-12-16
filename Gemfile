@@ -12,6 +12,10 @@ gem 'sass'
 
 gem 'omniauth-twitter'
 
+gem 'pg'
+gem 'rom-repository'
+gem 'rom-sql'
+
 group :development do
   gem 'shotgun'
 end
