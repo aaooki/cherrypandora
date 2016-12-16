@@ -1,5 +1,5 @@
 module CherryTomato
-  class AssetLoader < Sinatra::Base
+  class AssetsHelper < Sinatra::Base
     configure do
       set :assets, (Sprockets::Environment.new { |env|
         env.append_path("assets/images")
