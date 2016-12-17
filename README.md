@@ -1,3 +1,3 @@
-# Cherry Panadora
+# CherryTomato
 
-[![Build Status](https://travis-ci.org/aaooki/cherrypanadora.svg?branch=master)](https://travis-ci.org/aaooki/cherrypanadora)
+[![Build Status](https://travis-ci.org/aaooki/cherrytomato.svg?branch=master)](https://travis-ci.org/aaooki/cherrytomato)
