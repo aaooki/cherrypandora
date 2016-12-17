@@ -44,6 +44,9 @@ module CherryTomato
 
     get '/tracker' do
       if logged_in?
+        entry_repo = ROMConfig.new.repository(EntryRepository)
+        @entries = entry_repo.by_user_id(current_user[:id])
+
         erb :tracker
       else
         halt(401, 'Unauthorized')
