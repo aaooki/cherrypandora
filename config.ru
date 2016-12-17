@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require :default, ENV['RACK_ENV']
 
-# require './settings'
+require './settings'
 
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 $LOAD_PATH.push File.expand_path("../app", __FILE__)
