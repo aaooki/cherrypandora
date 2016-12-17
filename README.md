@@ -1,3 +1,3 @@
 # CherryTomato
 
-[![Build Status](https://travis-ci.org/aaooki/cherrytomato.svg?branch=master)](https://travis-ci.org/aaooki/cherrytomato)
+[![Build Status](https://travis-ci.org/aaooki/CherryTomato.svg?branch=master)](https://travis-ci.org/aaooki/CherryTomato)
