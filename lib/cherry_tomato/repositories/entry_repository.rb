@@ -7,11 +7,11 @@ module CherryTomato
     end
 
     def by_user_id(user_id)
-      entries.where(user_id: user_id).one
+      entries.where(user_id: user_id).order(:created_at).reverse
     end
 
     def all
-      entries.to_a
+      entries
     end
   end
 end
