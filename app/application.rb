@@ -41,5 +41,27 @@ module CherryTomato
       logout!
       redirect to '/'
     end
+
+    get '/tracker' do
+      if logged_in?
+        entry_repo = ROMConfig.new.repository(EntryRepository)
+        @entries = entry_repo.by_user_id(current_user[:id])
+
+        erb :tracker
+      else
+        halt(401, 'Unauthorized')
+      end
+    end
+
+    post '/entry' do
+      if logged_in?
+        entry_repo = ROMConfig.new.repository(EntryRepository)
+        new_entry = entry_repo.create(length: params[:length], created_at: DateTime.now, user_id: current_user[:id])
+
+        halt(200)
+      else
+        halt(401, 'Unauthorized')
+      end
+    end
   end
 end

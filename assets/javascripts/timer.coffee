@@ -52,7 +52,9 @@ class Timer
     return
 
   stop: ->
-    clearInterval @timerID if typeof @timerID != 'undefined'
+    if typeof @timerID != 'undefined'
+      clearInterval @timerID
+      @create_entry()
 
     # unlock editing timer panels
     $('#minutes').prop('contenteditable', true)
@@ -61,6 +63,10 @@ class Timer
     # Reset the switch to stopped mode
     $('#start-stop-switch').prop('checked', true)
     return
+
+  create_entry: ->
+    $.post "/entry",
+    length: @elapsedSeconds
 
 # instantiate Timer
 @timer_instance = new Timer

@@ -10,6 +10,15 @@ module CherryTomato
 
             index :uid, unique: true
           end
+
+          create_table(:entries) do
+            primary_key :id
+            Integer :length, null: false
+            DateTime :created_at, null: false
+            foreign_key :user_id, :users, null: false
+
+            index :user_id
+          end
         end
       end
 
