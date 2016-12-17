@@ -26,11 +26,7 @@ class Timer
     @timerID = setInterval (=>
       if @elapsedSeconds >= @overallSeconds
         @stop()
-
-        title = "You Can Take a Break Now"
-        message = "You Have Worked for #{inputMinutes}:#{inputSeconds}"
-        Notify(title, message)
-        return
+        @send_notification(inputMinutes, inputSeconds)
 
       currentTime = new Date().getTime() - @startTime
       @elapsedSeconds = parseInt(Math.floor(currentTime / 100) / 10)
@@ -67,6 +63,13 @@ class Timer
   create_entry: ->
     $.post "/entry",
     length: @elapsedSeconds
+
+  send_notification: (minutes, seconds) ->
+    title = "You can take a break now!"
+    message = "Your current time is #{minutes}:#{seconds}"
+    Notify(title, message)
+    return
+
 
 # instantiate Timer
 @timer_instance = new Timer
