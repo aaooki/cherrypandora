@@ -14,12 +14,16 @@ module CherryTomato
     private
 
     def load_db_settings
-      user = ENV['DB_USER']
-      password = ENV['DB_PASSWORD']
-      host = ENV['DB_HOST']
-      dbname = ENV['DB_DATABASE']
+      if ENV['RACK_ENV'] == 'production'
+        ENV['DATABASE_URL']
+      else
+        user = ENV['DB_USER']
+        password = ENV['DB_PASSWORD']
+        host = ENV['DB_HOST']
+        dbname = ENV['DB_DATABASE']
 
-      "postgres://#{host}/#{dbname}?user=#{user}&password=#{password}"
+        "postgres://#{host}/#{dbname}?user=#{user}&password=#{password}"
+      end
     end
   end
 end
