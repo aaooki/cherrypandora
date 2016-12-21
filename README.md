@@ -5,6 +5,8 @@ http://cherrytomato.herokuapp.com/
 
 A time organizer based on the Pomodoro technique.
 
+<img src="https://github.com/aaooki/CherryTomato/blob/master/assets/images/cherrytomato.png" width="200">
+
 [![Build Status](https://travis-ci.org/aaooki/CherryTomato.svg?branch=master)](https://travis-ci.org/aaooki/CherryTomato)
 
 ## Installation
@@ -20,6 +22,9 @@ A time organizer based on the Pomodoro technique.
   A PostgreSQL server must be running.
 
 - Run the server using `rackup -p 7777` or provide another port number.
+
+## Contribution
+If there's anythong you want to change, please send a pull request.
 
 ## License
 See [LICENSE](https://github.com/aaooki/CherryTomato/blob/master/LICENSE).
