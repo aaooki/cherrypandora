@@ -5,9 +5,9 @@ http://cherrytomato.herokuapp.com/
 
 A time organizer based on the Pomodoro technique.
 
-<img src="https://github.com/aaooki/CherryTomato/blob/master/assets/images/cherrytomato.png" width="200">
+<img src="https://github.com/aaoiki/CherryTomato/blob/master/assets/images/cherrytomato.png" width="200">
 
-[![Build Status](https://travis-ci.org/aaooki/CherryTomato.svg?branch=master)](https://travis-ci.org/aaooki/CherryTomato)
+[![Build Status](https://travis-ci.org/aaoiki/CherryTomato.svg?branch=master)](https://travis-ci.org/aaoiki/CherryTomato)
 
 ## Installation
 - You need Ruby 2.3+, and bower.
@@ -27,4 +27,4 @@ A time organizer based on the Pomodoro technique.
 If there's anythong you want to change, please send a pull request.
 
 ## License
-See [LICENSE](https://github.com/aaooki/CherryTomato/blob/master/LICENSE).
+See [LICENSE](https://github.com/aaoiki/CherryTomato/blob/master/LICENSE).
