@@ -5,9 +5,9 @@ http://panadoura.herokuapp.com/
 
 A time organizer based on the Pomodoro technique.
 
-<img src="https://github.com/yahmds/panadoura/blob/master/assets/images/cherrytomato.png" width="200">
+<img src="https://github.com/aonemd/panadoura/blob/master/assets/images/cherrytomato.png" width="200">
 
-[![Build Status](https://travis-ci.org/yahmds/panadoura.svg?branch=master)](https://travis-ci.org/yahmds/panadoura)
+[![Build Status](https://travis-ci.org/aonemd/panadoura.svg?branch=master)](https://travis-ci.org/aonemd/panadoura)
 
 ## Installation
 - You need Ruby 2.3+, and bower.
@@ -27,4 +27,4 @@ A time organizer based on the Pomodoro technique.
 If there's anythong you want to change, please send a pull request.
 
 ## License
-See [LICENSE](https://github.com/yahmds/panadoura/blob/master/LICENSE).
+See [LICENSE](https://github.com/aonemd/panadoura/blob/master/LICENSE).
