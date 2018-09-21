@@ -10,6 +10,8 @@ gem 'coffee-script'
 gem "uglifier"
 gem 'sass'
 
+gem 'foreman'
+
 gem 'omniauth-twitter'
 
 gem 'pg'
