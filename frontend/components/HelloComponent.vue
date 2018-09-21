@@ -6,3 +6,14 @@
 
    }
 </script>
+
+<style>
+
+:root {
+  --kind-of-black: #1b1918;
+}
+
+body {
+  background-color: var(--kind-of-black);
+}
+</style>
