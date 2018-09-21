@@ -1,3 +1,5 @@
 .sass-cache
 .byebug_history
 settings.rb
+node_modules
+public/index*
