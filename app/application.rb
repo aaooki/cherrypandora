@@ -2,10 +2,20 @@ Dir.glob('./app/**/*.rb').each { |file| require file }
 
 module Panadoura
   class Application < Sinatra::Base
+    register Sinatra::Namespace
+
     use AssetsHelper
     use SessionsHelper
 
     helpers SessionsHelper::UserSession
+
+    namespace '/api' do
+      get '' do
+        content_type :json
+
+        { msg: "Hello, World!" }.to_json
+      end
+    end
 
     # Twitter auth
     use OmniAuth::Builder do
