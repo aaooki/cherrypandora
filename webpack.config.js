@@ -1,5 +1,6 @@
 const path              = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin   = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'frontend/index.js'),
@@ -10,7 +11,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'frontend', 'index.html')
-    })
+    }),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -20,6 +22,10 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   }
