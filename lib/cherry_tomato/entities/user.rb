@@ -1,4 +1,4 @@
-module CherryTomato
+module Panadoura
   class User
     attr_reader :id, :username, :uid
 

@@ -25,7 +25,7 @@ else
     dir: 'auto'
     lang: 'EN'
     tag: 'notificationPopup'
-    icon: '/assets/cherrytomato-flat.png')
+    icon: '/assets/panadoura-flat.png')
 
   noty.onclick = ->
     window.focus()

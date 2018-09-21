@@ -1,4 +1,4 @@
-module CherryTomato
+module Panadoura
   class EntryRepository < ROM::Repository[:entries]
     commands :create
 

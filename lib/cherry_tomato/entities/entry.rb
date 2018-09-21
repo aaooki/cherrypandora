@@ -1,4 +1,4 @@
-module CherryTomato
+module Panadoura
   class Entry
     attr_reader :id, :length, :created_at, :user_id
 

@@ -5,7 +5,7 @@ http://panadoura.herokuapp.com/
 
 A time organizer based on the Pomodoro technique.
 
-<img src="https://github.com/aonemd/panadoura/blob/master/assets/images/cherrytomato.png" width="200">
+<img src="https://github.com/aonemd/panadoura/blob/master/assets/images/panadoura.png" width="200">
 
 [![Build Status](https://travis-ci.org/aonemd/panadoura.svg?branch=master)](https://travis-ci.org/aonemd/panadoura)
 

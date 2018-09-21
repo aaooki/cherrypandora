@@ -1,6 +1,6 @@
 Dir.glob('./app/**/*.rb').each { |file| require file }
 
-module CherryTomato
+module Panadoura
   class Application < Sinatra::Base
     use AssetsHelper
     use SessionsHelper

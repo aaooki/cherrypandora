@@ -1,4 +1,4 @@
-module CherryTomato
+module Panadoura
   class SessionsHelper < Sinatra::Base
     configure do
       enable :sessions

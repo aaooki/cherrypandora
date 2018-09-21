@@ -1,4 +1,4 @@
-module CherryTomato
+module Panadoura
   class UserRepository < ROM::Repository[:users]
     commands :create
 

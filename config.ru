@@ -9,4 +9,4 @@ $LOAD_PATH.push File.expand_path("../app", __FILE__)
 require 'cherry_tomato'
 require 'application'
 
-run CherryTomato::Application
+run Panadoura::Application
