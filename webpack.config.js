@@ -6,7 +6,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'frontend/index.js'),
   output: {
     path: path.resolve(__dirname, 'public/'),
-    filename: 'index.js'
+    filename: '[hash]-index.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
