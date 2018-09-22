@@ -12,7 +12,9 @@
     "postcss-import": "^12.0.0",
     "vue": "^2.5.17",
     "vue-resource": "^1.5.1",
-    "vue-router": "^3.0.1",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "7",
     "babel-preset-env": "^1.7.0",
@@ -25,8 +27,6 @@
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
-  },
-  "devDependencies": {
   },
   "scripts": {
     "dev": "$(yarn bin)/webpack-dev-server --mode development",
