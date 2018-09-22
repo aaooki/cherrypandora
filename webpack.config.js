@@ -5,7 +5,7 @@ const VueLoaderPlugin   = require('vue-loader/lib/plugin')
 module.exports = {
   entry: path.resolve(__dirname, 'frontend/index.js'),
   output: {
-    path: path.resolve(__dirname, 'app/views/'),
+    path: path.resolve(__dirname, 'public/'),
     filename: '[hash]-index.js'
   },
   plugins: [

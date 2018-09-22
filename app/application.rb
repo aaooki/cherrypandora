@@ -4,12 +4,6 @@ module Panadoura
   class Application < Sinatra::Base
     register Sinatra::Namespace
 
-    # use AssetsHelper
-    # use SessionsHelper
-    #
-    # helpers SessionsHelper::UserSession
-
-
     namespace '/api' do
       get '' do
         content_type :json
@@ -19,7 +13,7 @@ module Panadoura
     end
 
     get '/' do
-      render :html, :index
+      File.read(File.join('public', 'index.html'))
     end
 
     # Twitter auth
