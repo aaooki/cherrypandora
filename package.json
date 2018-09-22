@@ -30,6 +30,7 @@
   },
   "scripts": {
     "dev": "$(yarn bin)/webpack-dev-server --mode development",
-    "build": "$(yarn bin)/webpack --mode production"
+    "build": "$(yarn bin)/webpack --mode production",
+    "heroku-postbuild": "$(yarn bin)/webpack --mode production"
   }
 }
