@@ -1,2 +1,2 @@
-front-end: yarn run build
-back-end: bundle exec rackup -p $PORT
+assets: yarn run build
+web: bundle exec rackup -p $PORT
