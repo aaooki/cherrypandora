@@ -13,7 +13,7 @@ module Panadoura
     end
 
     get '/' do
-      render :html, :index
+      File.read('public/index.html')
     end
 
     # Twitter auth
