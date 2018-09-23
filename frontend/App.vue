@@ -11,5 +11,9 @@ export default {
 <style>
 @import "stylesheets/grid.css";
 @import "stylesheets/utils.css";
-</style>
+@import "stylesheets/variables.css";
 
+body {
+  background-color: var(--background-color);
+}
+</style>
