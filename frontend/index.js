@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.esm'
-import HelloComponent from './components/HelloComponent.vue'
+import App from './App.vue'
 
 var app = new Vue({
   el: '#app',
-  render: h => h(HelloComponent)
+  render: h => h(App)
 })
