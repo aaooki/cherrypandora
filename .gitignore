@@ -2,4 +2,4 @@
 .byebug_history
 settings.rb
 node_modules
-app/views
+app/public
