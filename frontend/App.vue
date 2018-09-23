@@ -1,10 +1,17 @@
 <template>
-   <h1>Hello from App</h1>
+  <div>
+    <app-navbar></app-navbar>
+    <h1>Hello from App</h1>
+  </div>
 </template>
 
 <script>
-export default {
+import Navbar from './components/Navbar.vue';
 
+export default {
+  components: {
+    'app-navbar': Navbar
+  }
 }
 </script>
 

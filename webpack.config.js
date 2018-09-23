@@ -37,6 +37,16 @@ module.exports = {
           },
           'postcss-loader'
         ]
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader:'file-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          'svg-sprite-loader'
+        ]
       }
     ]
   }
