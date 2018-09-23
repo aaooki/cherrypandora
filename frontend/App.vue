@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style>
+@import "stylesheets/grid.css";
+@import "stylesheets/utils.css";
 </style>
 
