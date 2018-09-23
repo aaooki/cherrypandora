@@ -1,6 +1,6 @@
 const path              = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin   = require('vue-loader/lib/plugin')
+const VueLoaderPlugin   = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'frontend/index.js'),
@@ -41,3 +41,8 @@ module.exports = {
     ]
   }
 };
+
+if (process.env.NODE_ENV === 'test') {
+  module.exports.externals = [require('webpack-node-externals')()];
+  module.exports.devtool   = 'inline-cheap-module-source-map';
+}
