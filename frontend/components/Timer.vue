@@ -9,30 +9,38 @@
         </div>
       </div>
       <div class="row">
-        <button v-on:click="setTime()">Start</button>
+        <timer-switch @output="state => switchChecked = state" @switch-click="setTime"></timer-switch>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import TimerSwitch from './TimerSwitch.vue'
+
   export default {
+    components: {
+      'timer-switch': TimerSwitch
+    },
     data() {
       return {
         minutes: '25',
         seconds: '00',
-        intervalTimer: undefined
+        intervalTimer: undefined,
+        switchChecked: false
       }
     },
     methods: {
       setTime() {
-        clearInterval(this.intervalTimer);
+        if (this.switchChecked) {
+          this.stop();
+        } else {
+          let minutesToRun = document.querySelector("#minutes").textContent;
+          let secondsToRun = document.querySelector("#seconds").textContent;
+          let seconds      = parseInt(minutesToRun) * 60 + parseInt(secondsToRun);
 
-        let minutesToRun = document.querySelector("#minutes").textContent;
-        let secondsToRun = document.querySelector("#seconds").textContent;
-        let seconds      = parseInt(minutesToRun) * 60 + parseInt(secondsToRun);
-
-        this.start(seconds);
+          this.start(seconds);
+        }
       },
       start(seconds) {
         const now = Date.now();
