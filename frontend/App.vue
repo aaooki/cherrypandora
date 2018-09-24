@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style>
+@import "normalize.css/normalize.css";
+
 @import "stylesheets/grid.css";
 @import "stylesheets/utils.css";
 @import "stylesheets/variables.css";
