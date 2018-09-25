@@ -72,7 +72,7 @@
         const minutes = Math.floor((secondsLeft % 3600) / 60);
         const seconds = secondsLeft % 60;
 
-        this.minutes = minutes;
+        this.minutes = `${minutes < 10 ? '0' : ''}${minutes}`;
         this.seconds = `${seconds < 10 ? '0' : ''}${seconds}`;
       },
     }
