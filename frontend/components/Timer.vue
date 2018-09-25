@@ -3,9 +3,19 @@
     <div class="col-12 col-m-12 text-center">
       <div id="timer__box">
         <div>
-          <span id="minutes" contenteditable="true">{{ minutes }}</span>
+          <span id="minutes"
+                contenteditable="true"
+                @focus="clear"
+                @focusout="fillIfEmpty">
+            {{ minutes }}
+          </span>
           :
-          <span id="seconds" contenteditable="true">{{ seconds }}</span>
+          <span id="seconds"
+                contenteditable="true"
+                @focus="clear"
+                @focusout="fillIfEmpty">
+            {{ seconds }}
+          </span>
         </div>
       </div>
       <div class="row">
@@ -87,6 +97,16 @@
         this.minutes = `${minutes < 10 ? '0' : ''}${minutes}`;
         this.seconds = `${seconds < 10 ? '0' : ''}${seconds}`;
       },
+      clear(event) {
+        event.target.textContent = '';
+      },
+      fillIfEmpty(event) {
+        let element = event.target;
+        if (element.textContent == "") {
+          element.textContent =
+            element.id == "minutes" ? this.minutes : this.seconds;
+        }
+      }
     }
   }
 </script>
