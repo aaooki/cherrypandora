@@ -17,6 +17,9 @@
 
 <script>
   import TimerSwitch from './TimerSwitch.vue'
+  import Notifier from '../services/notifier.js';
+
+  const notifier = new Notifier();
 
   export default {
     components: {
@@ -70,6 +73,7 @@
 
           if(secondsLeft < 0) {
             this.stop();
+            notifier.push("Your timer has stopped", "You can take a break now!");
 
             return;
           }

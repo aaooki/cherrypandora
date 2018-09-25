@@ -2,6 +2,7 @@
   <div>
     <app-navbar></app-navbar>
     <timer></timer>
+    <div id="notification-sound"></div>
   </div>
 </template>
 
