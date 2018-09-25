@@ -1,3 +1,7 @@
+import notificaionIcon     from '../images/panadoura-flat.png';
+import notificaionSoundMP3 from '../sounds/bell_ring.mp3';
+import notificaionSoundOGG from '../sounds/bell_ring.ogg';
+
 export default class Notifier {
   constructor() {
     window.notification = window.Notification || window.mozNotification || window.webkitNotification;
@@ -22,7 +26,7 @@ export default class Notifier {
       dir: 'auto',
       lang: 'EN',
       tag: 'notificationPopup',
-      icon: './panadoura-flat.png'
+      icon: notificaionIcon
     });
 
     notification.onclick = () => {
@@ -33,7 +37,7 @@ export default class Notifier {
       console.log(err);
     };
     notification.onshow = () => {
-      this._playSound('sounds/bell_ring');
+      this._playSound();
     };
     notification.onclose = () => {
       document.title = 'Panadoura';
@@ -42,13 +46,13 @@ export default class Notifier {
     return true;
   }
 
-  _playSound(fileName) {
+  _playSound() {
     document.getElementById('notification-sound').innerHTML =
       `
       <audio autoplay="autoplay">
-        <source src="${fileName}.mp3" type="audio/mpeg" />
-        <source src="${fileName}.ogg" type="audio/ogg" />
-        <embed hidden="true" autostart="true" loop="false" src="${fileName}.mp3" />
+        <source src="${notificaionSoundMP3}" type="audio/mpeg" />
+        <source src="${notificaionSoundOGG}" type="audio/ogg" />
+        <embed hidden="true" autostart="true" loop="false" src="${notificaionSoundMP3}" />
       </audio>`;
   }
 }
