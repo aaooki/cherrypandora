@@ -25,17 +25,17 @@ export default class Notifier {
       icon: './panadoura-flat.png'
     });
 
-    notification.onclick = function() {
+    notification.onclick = () => {
       window.focus();
       this.close();
     };
-    notification.onerror = function(err) {
+    notification.onerror = (err) => {
       console.log(err);
     };
-    notification.onshow = function() {
-      _playSound('sounds/bell_ring');
+    notification.onshow = () => {
+      this._playSound('sounds/bell_ring');
     };
-    notification.onclose = function() {
+    notification.onclose = () => {
       document.title = 'Panadoura';
     };
 
