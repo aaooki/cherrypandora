@@ -35,6 +35,9 @@
         if (this.switchChecked) {
           this.stop();
         } else {
+          document.querySelector("#minutes").contentEditable = false;
+          document.querySelector("#seconds").contentEditable = false;
+
           let minutesToRun = document.querySelector("#minutes").textContent;
           let secondsToRun = document.querySelector("#seconds").textContent;
           let seconds      = parseInt(minutesToRun) * 60 + parseInt(secondsToRun);
@@ -52,6 +55,10 @@
       },
       stop() {
         clearInterval(this.intervalTimer);
+
+        document.querySelector("#timer-switch").checked    = false
+        document.querySelector("#minutes").contentEditable = true;
+        document.querySelector("#seconds").contentEditable = true;
       },
       countdown(end) {
         this.intervalTimer = setInterval(() => {
@@ -62,8 +69,8 @@
           }
 
           if(secondsLeft < 0) {
-            clearInterval(this.intervalTimer);
-            document.querySelector("#timer-switch").checked = false
+            this.stop();
+
             return;
           }
           this.displayTimeLeft(secondsLeft)
