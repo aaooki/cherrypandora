@@ -1,6 +1,6 @@
 <template>
   <label class="switch">
-    <input type="checkbox" @change="onChange" @click="$emit('switch-click')">
+    <input id="timer-switch" type="checkbox" @change="onChange" @click="$emit('switch-click')">
     <span class="slider"></span>
   </label>
 </template>

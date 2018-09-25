@@ -63,6 +63,7 @@
 
           if(secondsLeft < 0) {
             clearInterval(this.intervalTimer);
+            document.querySelector("#timer-switch").checked = false
             return;
           }
           this.displayTimeLeft(secondsLeft)
