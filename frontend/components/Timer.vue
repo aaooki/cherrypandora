@@ -3,19 +3,21 @@
     <div class="col-12 col-m-12 text-center">
       <div id="timer__box">
         <div>
-          <span id="minutes"
-                contenteditable="true"
-                @focus="clear"
-                @focusout="fillIfEmpty">
-            {{ minutes }}
-          </span>
+          <input id="minutes"
+                 type="text"
+                 v-model="minutes"
+                 contenteditable="true"
+                 @focus="clear"
+                 @focusout="fillIfEmpty">
+          </input>
           :
-          <span id="seconds"
-                contenteditable="true"
-                @focus="clear"
-                @focusout="fillIfEmpty">
-            {{ seconds }}
-          </span>
+          <input id="seconds"
+                 type="text"
+                 v-model="seconds"
+                 contenteditable="true"
+                 @focus="clear"
+                 @focusout="fillIfEmpty">
+          </input>
         </div>
       </div>
       <div class="row">
@@ -51,8 +53,8 @@
           document.querySelector("#minutes").contentEditable = false;
           document.querySelector("#seconds").contentEditable = false;
 
-          let minutesToRun = document.querySelector("#minutes").textContent;
-          let secondsToRun = document.querySelector("#seconds").textContent;
+          let minutesToRun = this.minutes;
+          let secondsToRun = this.seconds;
           let seconds      = parseInt(minutesToRun) * 60 + parseInt(secondsToRun);
 
           this.start(seconds);
@@ -98,12 +100,12 @@
         this.seconds = `${seconds < 10 ? '0' : ''}${seconds}`;
       },
       clear(event) {
-        event.target.textContent = '';
+        event.target.value = '';
       },
       fillIfEmpty(event) {
         let element = event.target;
-        if (element.textContent == "") {
-          element.textContent =
+        if (element.value == "") {
+          element.value =
             element.id == "minutes" ? this.minutes : this.seconds;
         }
       }
@@ -137,11 +139,12 @@
       background-color: var(--white);
       display: inline-block;
 
-      & span {
+      & input {
         padding: 15px;
         display: inline-block;
         width: 150px;
         max-width: 150px;
+        border-style: none;
 
         /* small screens */
         @media screen and (max-width: 39.9375em) {
