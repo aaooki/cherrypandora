@@ -11,7 +11,7 @@
       <input type="checkbox" id="toggle">
 
       <div class="menu">
-        <a href="">
+        <a href="#">
           <svg><use xlink:href="#twitter"></use></svg>
           Login
         </a>
