@@ -2,8 +2,10 @@
   <div>
     <nav>
       <div class="title">
-        <a href="/">
-          <img src="../images/panadoura.png" alt="logo" id="logo">
+        <a href="#">
+          <router-link to="/" exact>
+            <img src="../images/panadoura.png" alt="logo" id="logo">
+          </router-link>
         </a>
       </div>
 
