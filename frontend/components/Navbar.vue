@@ -14,8 +14,10 @@
 
       <div class="menu">
         <a href="#">
-          <svg><use xlink:href="#twitter"></use></svg>
-          Login
+          <router-link to="/login" exact>
+            <svg><use xlink:href="#twitter"></use></svg>
+            Login
+          </router-link>
         </a>
       </div>
     </nav>
