@@ -3,6 +3,7 @@ GEM
   specs:
     backports (3.11.4)
     byebug (9.0.6)
+    coderay (1.1.2)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -35,6 +36,7 @@ GEM
     inflecto (0.0.2)
     json (2.0.2)
     jwt (2.1.0)
+    method_source (0.9.0)
     minitest (5.10.1)
     multi_json (1.13.1)
     oauth (0.5.4)
@@ -48,6 +50,9 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     pg (0.19.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     rack (1.6.10)
     rack-protection (1.5.3)
       rack
@@ -118,6 +123,7 @@ DEPENDENCIES
   minitest
   omniauth-twitter
   pg
+  pry
   rack-test
   rake
   rom-repository

@@ -28,6 +28,7 @@ end
 group :development, :test do
   gem 'rake'
   gem 'byebug'
+  gem 'pry'
 end
 
 group :test do
