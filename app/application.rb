@@ -8,6 +8,10 @@ module Panadoura
     use CORSHelper
 
     namespace '/api' do
+      before do
+        halt(401, 'Unauthorized') unless RequestAuthenticator.new(request).call
+      end
+
       get '' do
         content_type :json
 
