@@ -22,6 +22,11 @@
         <a href="#" v-show="authenticated">
           {{ username }}
         </a>
+        <a href="#" v-show="authenticated">
+          <router-link to="/logout" exact>
+            Logout
+          </router-link>
+        </a>
       </div>
     </nav>
   </div>
