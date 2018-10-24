@@ -8,6 +8,10 @@ module Panadoura
       valid_header? && valid_payload?
     end
 
+    def current_user
+      @current_user ||= find_current_user
+    end
+
     private
 
     def valid_header?
@@ -19,10 +23,12 @@ module Panadoura
     end
 
     def valid_user?
-      user_repo = ROMConfig.new.repository(UserRepository)
-      user      = user_repo.by_uid(payload['uid'])
+      !!find_current_user
+    end
 
-      !!user
+    def find_current_user
+      user_repo = ROMConfig.new.repository(UserRepository)
+      user_repo.by_uid(payload['uid'])
     end
 
     def payload

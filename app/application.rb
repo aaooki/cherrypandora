@@ -17,6 +17,15 @@ module Panadoura
 
         { msg: "Hello, World!" }.to_json
       end
+
+      get '/tracker' do
+        content_type :json
+
+        entry_repo = ROMConfig.new.repository(EntryRepository)
+        entries    = entry_repo.by_user_id(RequestAuthenticator.new(request).current_user[:id])
+
+        { entries: entries }.to_json
+      end
     end
 
     get '/' do
@@ -50,17 +59,6 @@ module Panadoura
       end
     end
 
-    # get '/tracker' do
-    #   if logged_in?
-    #     entry_repo = ROMConfig.new.repository(EntryRepository)
-    #     @entries = entry_repo.by_user_id(current_user[:id])
-    #
-    #     erb :tracker
-    #   else
-    #     halt(401, 'Unauthorized')
-    #   end
-    # end
-    #
     # post '/entry' do
     #   if logged_in?
     #     entry_repo = ROMConfig.new.repository(EntryRepository)
