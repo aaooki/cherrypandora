@@ -20,7 +20,7 @@ module Panadoura
 
     def valid_user?
       user_repo = ROMConfig.new.repository(UserRepository)
-      user      = user_repo.by_uid(response.uid)
+      user      = user_repo.by_uid(payload['uid'])
 
       !!user
     end
