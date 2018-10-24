@@ -20,6 +20,11 @@
           </router-link>
         </a>
         <a href="#" v-show="authenticated">
+          <router-link to="/tracker" exact>
+            Tracker
+          </router-link>
+        </a>
+        <a href="#" v-show="authenticated">
           {{ username }}
         </a>
         <a href="#" v-show="authenticated">
