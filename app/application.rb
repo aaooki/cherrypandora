@@ -40,7 +40,7 @@ module Panadoura
         end
 
         jwt_token = JWTEncoderDecoder.encode(user_id: user.id, username: user.username, uid: user.uid)
-        redirect "http://localhost:8080/authenticate?access_token=#{jwt_token}"
+        redirect "/#/authenticate?access_token=#{jwt_token}"
       else
         halt(401, 'Unauthorized')
       end

@@ -4,7 +4,7 @@
 <script>
   export default {
     created() {
-      window.location.replace("http://localhost:7070/login");
+      window.location.replace("/login");
     }
   }
 </script>
