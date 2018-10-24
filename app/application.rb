@@ -5,14 +5,7 @@ module Panadoura
     register Sinatra::Namespace
 
     use SessionsHelper
-
-    configure do
-      enable :cross_origin
-    end
-
-    before do
-      response.headers['Access-Control-Allow-Origin'] = '*'
-    end
+    use CORSHelper
 
     namespace '/api' do
       get '' do
@@ -24,13 +17,6 @@ module Panadoura
 
     get '/' do
       File.read('app/public/index.html')
-    end
-
-    options "*" do
-      response.headers["Allow"] = "GET, POST, OPTIONS"
-      response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
-      response.headers["Access-Control-Allow-Origin"] = "*"
-      200
     end
 
     # Twitter auth
