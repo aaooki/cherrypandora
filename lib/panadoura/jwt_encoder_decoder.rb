@@ -9,7 +9,7 @@ module JWTEncoderDecoder
 
   def self.decode(token)
     payload = JWT.decode(token, ENV['SESSION_SECRET']).first
-    HashWithIndifferentAccess.new payload
+    payload.inject(:merge!)
   rescue
     nil
   end
