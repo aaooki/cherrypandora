@@ -8,13 +8,12 @@ module JWTEncoderDecoder
   end
 
   def self.decode(token)
-    payload = JWT.decode(token, ENV['SESSION_SECRET']).first
-    payload.inject(:merge!)
+    JWT.decode(token, ENV['SESSION_SECRET']).first
   rescue
     nil
   end
 
   def self.expired?(payload)
-    DateTime.strptime(payload[:exp], '%s') < DateTime.now
+    DateTime.strptime(payload['exp'], '%s') < DateTime.now
   end
 end
