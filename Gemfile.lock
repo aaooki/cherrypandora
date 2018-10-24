@@ -34,6 +34,7 @@ GEM
     hashie (3.5.7)
     inflecto (0.0.2)
     json (2.0.2)
+    jwt (2.1.0)
     minitest (5.10.1)
     multi_json (1.13.1)
     oauth (0.5.4)
@@ -113,6 +114,7 @@ DEPENDENCIES
   coffee-script
   foreman
   json
+  jwt
   minitest
   omniauth-twitter
   pg

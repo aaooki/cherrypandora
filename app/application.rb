@@ -39,7 +39,8 @@ module Panadoura
           user = user_repo.create(username: response.info.nickname, uid: response.uid)
         end
 
-        redirect 'http://localhost:8080?token=123'
+        jwt_token = JWTEncoderDecoder.encode(user_id: user.id, username: user.username, uid: user.uid)
+        redirect "http://localhost:8080/authenticate?access_token=#{jwt_token}"
       else
         halt(401, 'Unauthorized')
       end

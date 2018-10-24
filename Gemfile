@@ -15,6 +15,7 @@ gem 'foreman'
 
 gem 'omniauth-twitter'
 gem "sinatra-cross_origin", "~> 0.3.1"
+gem 'jwt'
 
 gem 'pg'
 gem 'rom-repository'
