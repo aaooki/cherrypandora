@@ -13,11 +13,14 @@
       <input type="checkbox" id="toggle">
 
       <div class="menu">
-        <a href="#">
+        <a href="#" v-show="!authenticated">
           <router-link to="/login" exact>
             <svg><use xlink:href="#twitter"></use></svg>
             Login
           </router-link>
+        </a>
+        <a href="#" v-show="authenticated">
+          {{ username }}
         </a>
       </div>
     </nav>
@@ -26,6 +29,20 @@
 
 <script>
   import twitterIcon from '../images/twitter.svg';
+  import JWTDecoder from '../services/jwt-decoder';
+
+  export default {
+    data() {
+      return {
+        authenticated: false,
+        username: ''
+      }
+    },
+    created() {
+      this.authenticated = JWTDecoder.is_authenticated();
+      this.username      = JWTDecoder.payload()['username'];
+    }
+  }
 </script>
 
 <style scoped>
