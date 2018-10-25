@@ -10,9 +10,6 @@ gem 'jwt'
 gem 'pg'
 gem 'sequel'
 
-gem 'rom-repository'
-gem 'rom-sql'
-
 gem 'geckorate'
 
 group :development do
