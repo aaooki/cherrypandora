@@ -42,6 +42,7 @@
         minutes: '25',
         seconds: '00',
         intervalTimer: undefined,
+        startTime: undefined,
         switchChecked: false
       }
     },
@@ -61,7 +62,7 @@
         }
       },
       start(seconds) {
-        const now = Date.now();
+        const now = this.startTime = Date.now();
         const end = now + seconds * 1000;
 
         this.displayTimeLeft(seconds);
@@ -74,6 +75,9 @@
         document.querySelector("#timer-switch").checked    = false
         document.querySelector("#minutes").contentEditable = true;
         document.querySelector("#seconds").contentEditable = true;
+
+        let elapsedTime = Math.floor((Date.now() - this.startTime) / 1000);
+        this.createEntry(elapsedTime);
       },
       countdown(end) {
         this.intervalTimer = setInterval(() => {
@@ -108,6 +112,12 @@
           element.value =
             element.id == "minutes" ? this.minutes : this.seconds;
         }
+      },
+      createEntry(length) {
+        let access_token = localStorage.getItem('token');
+        this.$http.post('/api/entry',
+          { length: length },
+          { headers: { 'Authorization': `Bearer ${access_token}` } })
       }
     }
   }

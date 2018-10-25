@@ -26,6 +26,17 @@ module Panadoura
 
         { entries: entries }.to_json
       end
+
+      post '/entry' do
+        content_type :json
+
+        entry_repo = ROMConfig.new.repository(EntryRepository)
+        entry_repo.create(length: JSON.parse(request.body.read)['length'],
+                          created_at: DateTime.now,
+                          user_id: RequestAuthenticator.new(request).current_user[:id])
+
+        halt(200)
+      end
     end
 
     get '/' do
@@ -58,16 +69,5 @@ module Panadoura
         halt(401, 'Unauthorized')
       end
     end
-
-    # post '/entry' do
-    #   if logged_in?
-    #     entry_repo = ROMConfig.new.repository(EntryRepository)
-    #     new_entry = entry_repo.create(length: params[:length], created_at: DateTime.now, user_id: current_user[:id])
-    #
-    #     halt(200)
-    #   else
-    #     halt(401, 'Unauthorized')
-    #   end
-    # end
   end
 end
