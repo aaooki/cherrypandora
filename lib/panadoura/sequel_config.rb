@@ -16,10 +16,9 @@ module Panadoura
         password = ENV['DB_PASSWORD']
         host     = ENV['DB_HOST']
         port     = ENV['DB_PORT']
-        db_name  = ENV['DB_DATABASE']
+        db_name  = ENV['DB_NAME']
 
         "postgres://#{user}:#{password}@#{host}:#{port}/#{db_name}"
-        # "postgres://#{host}/#{dbname}?user=#{user}&password=#{password}"
       end
     end
   end
