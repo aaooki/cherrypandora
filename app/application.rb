@@ -21,8 +21,10 @@ module Panadoura
       get '/tracker' do
         content_type :json
 
-        entry_repo        = ROMConfig.new.repository(EntryRepository)
-        entries           = entry_repo.by_user_id(RequestAuthenticator.new(request).current_user[:id])
+        db                = SequelConfig.new
+        repository        = Repositories::Entry.new(db.connection[:entries])
+        entries           =
+          repository.all_by_user_id(RequestAuthenticator.new(request).current_user[:id]).reverse_order(:created_at)
         decorated_entries = EntryDecorator.decorate_collection(entries.to_a, 'Panadoura::Entry')
 
         { entries: decorated_entries }.to_json
@@ -31,10 +33,11 @@ module Panadoura
       post '/entry' do
         content_type :json
 
-        entry_repo = ROMConfig.new.repository(EntryRepository)
-        entry_repo.create(length: JSON.parse(request.body.read)['length'],
-                          created_at: DateTime.now,
-                          user_id: RequestAuthenticator.new(request).current_user[:id])
+        db      = SequelConfig.new
+        command = Commands::Entry.new(db.connection[:entries])
+        command.create(length: JSON.parse(request.body.read)['length'],
+                       created_at: DateTime.now,
+                       user_id: RequestAuthenticator.new(request).current_user[:id])
 
         halt(200)
       end

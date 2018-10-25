@@ -27,8 +27,9 @@ module Panadoura
     end
 
     def find_current_user
-      user_repo = ROMConfig.new.repository(UserRepository)
-      user_repo.by_uid(payload['uid'])
+      db                = SequelConfig.new
+      repository        = Repositories::User.new(db.connection[:users])
+      repository.find_by_uid(payload['uid'])
     end
 
     def payload
