@@ -21,10 +21,11 @@ module Panadoura
       get '/tracker' do
         content_type :json
 
-        entry_repo = ROMConfig.new.repository(EntryRepository)
-        entries    = entry_repo.by_user_id(RequestAuthenticator.new(request).current_user[:id])
+        entry_repo        = ROMConfig.new.repository(EntryRepository)
+        entries           = entry_repo.by_user_id(RequestAuthenticator.new(request).current_user[:id])
+        decorated_entries = EntryDecorator.decorate_collection(entries.to_a, 'Panadoura::Entry')
 
-        { entries: entries }.to_json
+        { entries: decorated_entries }.to_json
       end
 
       post '/entry' do

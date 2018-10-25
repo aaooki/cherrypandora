@@ -21,6 +21,8 @@ gem 'pg'
 gem 'rom-repository'
 gem 'rom-sql'
 
+gem 'geckorate', git: 'https://github.com/aonemd/geckorate'
+
 group :development do
   gem 'shotgun'
 end

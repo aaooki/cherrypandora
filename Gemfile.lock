@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/aonemd/geckorate
+  revision: c39c7eee39dcf83d7e430012bfd7f726d7f05bf3
+  specs:
+    geckorate (0.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -118,6 +124,7 @@ DEPENDENCIES
   byebug
   coffee-script
   foreman
+  geckorate!
   json
   jwt
   minitest
