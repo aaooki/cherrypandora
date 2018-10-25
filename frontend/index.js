@@ -1,12 +1,13 @@
 import Vue from 'vue/dist/vue.esm';
 import VueRouter from 'vue-router';
-import VueResource from 'vue-resource';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import App from './App.vue';
 import Routes from './routes.js';
 
 Vue.use(VueRouter)
-Vue.use(VueResource)
+Vue.use(VueAxios, axios)
 
 const router = new VueRouter({
   routes: Routes
