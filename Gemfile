@@ -14,6 +14,8 @@ gem 'sass'
 gem 'foreman'
 
 gem 'omniauth-twitter'
+gem "sinatra-cross_origin", "~> 0.3.1"
+gem 'jwt'
 
 gem 'pg'
 gem 'rom-repository'
@@ -26,6 +28,7 @@ end
 group :development, :test do
   gem 'rake'
   gem 'byebug'
+  gem 'pry'
 end
 
 group :test do

@@ -8,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, 'app/public'),
     filename: '[hash]-index.js'
   },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'frontend', 'index.html')
