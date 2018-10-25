@@ -112,6 +112,7 @@ DEPENDENCIES
   rake
   rom-repository
   rom-sql
+  sequel
   shotgun
   sinatra
   sinatra-contrib
