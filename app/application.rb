@@ -6,10 +6,11 @@ module Panadoura
 
     use SessionsHelper
     use CORSHelper
+    helpers Helpers::AuthenticationHelper
 
     namespace '/api' do
       before do
-        halt(401, 'Unauthorized') unless Services::RequestAuthenticator.new(request).call
+        halt(401, 'Unauthorized') unless logged_in?
       end
 
       get '' do
@@ -24,7 +25,7 @@ module Panadoura
         db                = SequelConfig.new
         repository        = Repositories::Entry.new(db.connection[:entries])
         entries           =
-          repository.all_by_user_id(Services::RequestAuthenticator.new(request).current_user[:id]).reverse_order(:created_at)
+          repository.all_by_user_id(current_user[:id]).reverse_order(:created_at)
         decorated_entries =
           Decorators::EntryDecorator.decorate_collection(entries.to_a, 'Panadoura::Decorators::Entry')
 
@@ -38,7 +39,7 @@ module Panadoura
         command = Commands::Entry.new(db.connection[:entries])
         command.create(length: JSON.parse(request.body.read)['length'],
                        created_at: DateTime.now,
-                       user_id: Services::RequestAuthenticator.new(request).current_user[:id])
+                       user_id: current_user[:id])
 
         halt(200)
       end
