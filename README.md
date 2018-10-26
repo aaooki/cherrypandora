@@ -21,7 +21,8 @@ A time organizer based on the Pomodoro technique.
 - Run the main server `bundle exec rackup -p 7070`
 
 ## Contribution
-If there's anything you would like to change, please send a pull request.
+
+If there's anything you would like to change, please send a pull request or open an issue.
 
 ## License
 See [LICENSE](https://github.com/aonemd/panadoura/blob/master/LICENSE).
