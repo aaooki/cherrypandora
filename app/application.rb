@@ -4,8 +4,8 @@ module Panadoura
   class Application < Sinatra::Base
     register Sinatra::Namespace
 
-    use SessionsHelper
-    use CORSHelper
+    use Helpers::SessionsHelper
+    use Helpers::CORSHelper
     helpers Helpers::AuthenticationHelper
 
     namespace '/api' do
