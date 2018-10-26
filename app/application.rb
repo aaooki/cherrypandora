@@ -1,4 +1,4 @@
-Dir.glob('./app/**/*.rb').each { |file| require file }
+Dir.glob('./app/**/*.rb').each { |file| require file unless File.basename(file) == File.basename(__FILE__) }
 
 module Panadoura
   class Application < Sinatra::Base
