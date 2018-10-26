@@ -60,14 +60,16 @@ module Panadoura
       response = env['omniauth.auth']
 
       if response
-        user_repo = ROMConfig.new.repository(UserRepository)
-        user      = user_repo.by_uid(response.uid)
+        db         = SequelConfig.new
+        repository = Repositories::User.new(db.connection[:users])
+        user       = repository.find_by_uid(response.uid)
 
         unless user
-          user = user_repo.create(username: response.info.nickname, uid: response.uid)
+          command = Commands::User.new(db.connection[:users])
+          user    = command.create(username: response.info.nickname, uid: response.uid.to_i)
         end
 
-        jwt_token = JWTEncoderDecoder.encode(user_id: user.id, username: user.username, uid: user.uid)
+        jwt_token = JWTEncoderDecoder.encode(user_id: user[:id], username: user[:username], uid: user[:uid])
         redirect "/#/authenticate?access_token=#{jwt_token}"
       else
         halt(401, 'Unauthorized')
