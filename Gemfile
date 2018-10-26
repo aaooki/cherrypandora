@@ -8,8 +8,7 @@ gem "sinatra-cross_origin", "~> 0.3.1"
 gem 'jwt'
 
 gem 'pg'
-gem 'rom-repository'
-gem 'rom-sql'
+gem 'sequel'
 
 gem 'geckorate'
 

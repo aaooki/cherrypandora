@@ -21,8 +21,10 @@ module Panadoura
       get '/tracker' do
         content_type :json
 
-        entry_repo        = ROMConfig.new.repository(EntryRepository)
-        entries           = entry_repo.by_user_id(RequestAuthenticator.new(request).current_user[:id])
+        db                = SequelConfig.new
+        repository        = Repositories::Entry.new(db.connection[:entries])
+        entries           =
+          repository.all_by_user_id(RequestAuthenticator.new(request).current_user[:id]).reverse_order(:created_at)
         decorated_entries = EntryDecorator.decorate_collection(entries.to_a, 'Panadoura::Entry')
 
         { entries: decorated_entries }.to_json
@@ -31,10 +33,11 @@ module Panadoura
       post '/entry' do
         content_type :json
 
-        entry_repo = ROMConfig.new.repository(EntryRepository)
-        entry_repo.create(length: JSON.parse(request.body.read)['length'],
-                          created_at: DateTime.now,
-                          user_id: RequestAuthenticator.new(request).current_user[:id])
+        db      = SequelConfig.new
+        command = Commands::Entry.new(db.connection[:entries])
+        command.create(length: JSON.parse(request.body.read)['length'],
+                       created_at: DateTime.now,
+                       user_id: RequestAuthenticator.new(request).current_user[:id])
 
         halt(200)
       end
@@ -57,14 +60,16 @@ module Panadoura
       response = env['omniauth.auth']
 
       if response
-        user_repo = ROMConfig.new.repository(UserRepository)
-        user      = user_repo.by_uid(response.uid)
+        db         = SequelConfig.new
+        repository = Repositories::User.new(db.connection[:users])
+        user       = repository.find_by_uid(response.uid)
 
         unless user
-          user = user_repo.create(username: response.info.nickname, uid: response.uid)
+          command = Commands::User.new(db.connection[:users])
+          user    = command.create(username: response.info.nickname, uid: response.uid.to_i)
         end
 
-        jwt_token = JWTEncoderDecoder.encode(user_id: user.id, username: user.username, uid: user.uid)
+        jwt_token = JWTEncoderDecoder.encode(user_id: user[:id], username: user[:username], uid: user[:uid])
         redirect "/#/authenticate?access_token=#{jwt_token}"
       else
         halt(401, 'Unauthorized')

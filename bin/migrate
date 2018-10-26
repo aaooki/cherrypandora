@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'pg'
+require './settings'
+
+# create the database first
+connection = PG::Connection.open(dbname: 'postgres', host: ENV['DB_HOST'], user: ENV['DB_USER'], password: ENV['DB_PASSWORD'])
+connection.exec("CREATE DATABASE #{ENV['DB_NAME']}")
+connection.close
+
+# run the migration file
+connection = PG::Connection.open(dbname: ENV['DB_NAME'], host: ENV['DB_HOST'], user: ENV['DB_USER'], password: ENV['DB_PASSWORD'])
+sql        = File.read('db.sql')
+connection.exec(sql)
+connection.close
