@@ -1,8 +1,9 @@
 module Panadoura
   module Services
     class RequestAuthenticator
-      def initialize(request)
-        @request = request
+      def initialize(request, user_repository)
+        @request         = request
+        @user_repository = user_repository
       end
 
       def call
@@ -28,9 +29,7 @@ module Panadoura
       end
 
       def find_current_user
-        db                = SequelConfig.new
-        repository        = Repositories::User.new(db.connection[:users])
-        repository.find_by_uid(payload['uid'])
+        @user_repository.find_by_uid(payload['uid'])
       end
 
       def payload
