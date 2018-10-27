@@ -10,6 +10,8 @@ require_relative '../settings.test'
 require File.expand_path 'lib/panadoura'
 require File.expand_path 'app/application'
 
+Dir['./test/support/**/*.rb'].each { |file| require file }
+
 class TestHelper < MiniTest::Test
   include Rack::Test::Methods
 end
