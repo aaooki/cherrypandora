@@ -77,7 +77,7 @@
     }
     & .title a {
       float: left;
-      margin: 0 16px;
+      margin: 3px 16px;
     }
 
     & .menu {
