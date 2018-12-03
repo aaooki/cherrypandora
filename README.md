@@ -13,12 +13,13 @@ A time organizer based on the Pomodoro technique.
 
 - You need to have Ruby v2.5+ and yarn
 - Run `bundle` and then `yarn` to install the dependencies
-- Create a config file named `settings.rb` and put your settings in there. An
-  example is provided in `settings.example.rb`
+- Create a config file named `.env` & `.env.test` and put your env variables in
+  there. An example is provided in `.env.example`
 - Run `bin/migrate` to setup the database for the first time. A PostgreSQL
   server must be running.
 - Build the frontend using `yarn build`
-- Run the main server `bundle exec rackup -p 7070`
+- Run the main server `export $(cat .env | xargs) && bundle exec rackup -p 7070`
+- Run to tests `export $(cat .env.test | xargs) && rake test`
 
 ## Contribution
 

@@ -1,6 +1,8 @@
 .sass-cache
 .byebug_history
-settings.rb
+
 node_modules
 app/public
-settings.test.rb
+
+.env
+.env.test
