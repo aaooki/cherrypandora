@@ -66,12 +66,14 @@ module Panadoura
         repository = Repositories::User.new(db.connection[:users])
         user       = repository.find_by_uid(response.uid)
 
-        unless user
-          command = Commands::User.new(db.connection[:users])
-          user    = command.create(username: response.info.nickname, uid: response.uid.to_i)
-        end
+        user_id = unless user
+                    command = Commands::User.new(db.connection[:users])
+                    command.create(username: response.info.nickname, uid: response.uid.to_i)
+                  end
 
-        jwt_token = JWTEncoderDecoder.encode(user_id: user[:id], username: user[:username], uid: user[:uid])
+        jwt_token = JWTEncoderDecoder.encode(user_id: user_id,
+                                             username: response.info.nickname,
+                                             uid: response.uid.to_i)
         redirect "/#/authenticate?access_token=#{jwt_token}"
       else
         halt(401, 'Unauthorized')
