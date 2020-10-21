@@ -8,16 +8,14 @@
                  v-model="minutes"
                  contenteditable="true"
                  @focus="clear"
-                 @focusout="fillIfEmpty">
-          </input>
+                 @focusout="fillIfEmpty" />
           :
           <input id="seconds"
                  type="text"
                  v-model="seconds"
                  contenteditable="true"
                  @focus="clear"
-                 @focusout="fillIfEmpty">
-          </input>
+                 @focusout="fillIfEmpty" />
         </div>
       </div>
       <div class="row">

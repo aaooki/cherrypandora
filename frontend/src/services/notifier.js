@@ -1,6 +1,6 @@
-import notificaionIcon     from '../images/panadoura-flat.png';
-import notificaionSoundMP3 from '../sounds/bell_ring.mp3';
-import notificaionSoundOGG from '../sounds/bell_ring.ogg';
+import notificaionIcon     from '../assets/images/panadoura-flat.png';
+import notificaionSoundMP3 from '../assets/sounds/bell_ring.mp3';
+import notificaionSoundOGG from '../assets/sounds/bell_ring.ogg';
 
 export default class Notifier {
   constructor() {

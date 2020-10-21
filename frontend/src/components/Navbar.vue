@@ -4,7 +4,7 @@
       <div class="title">
         <a href="#">
           <router-link to="/" exact>
-            <img src="../images/panadoura.png" alt="logo" id="logo">
+            <img src="../assets/images/panadoura.png" alt="logo" id="logo">
           </router-link>
         </a>
       </div>
@@ -38,8 +38,8 @@
 </template>
 
 <script>
-  import twitterIcon from '../images/twitter.svg';
-  import JWTDecoder from '../services/jwt-decoder';
+  // import twitterIcon from '../assets/images/twitter.svg';
+  import JWTDecoder from '../services/jwt-decoder.js';
 
   export default {
     data() {
