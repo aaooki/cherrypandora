@@ -1,5 +1,10 @@
 :root {
   --white-smoke: #ECECEC;
+  --light-gray:  #e6e6e6;
+  --light-blue:  #2199e8;
+
+  --navbar-height: 70px;
 
   --background-color: var(--white-smoke);
+  --navbar-background-color: var(--light-gray);
 }
