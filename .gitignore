@@ -1,5 +1,6 @@
 .sass-cache
 .byebug_history
+.bundle/
 
 node_modules
 app/public

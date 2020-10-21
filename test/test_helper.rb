@@ -1,7 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'minitest/autorun'
-require 'rack/test'
 require 'bundler'
 Bundler.require :default, ENV['RACK_ENV']
 
