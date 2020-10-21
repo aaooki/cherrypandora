@@ -17,6 +17,7 @@ gem 'geckorate'
 
 group :development do
   gem 'shotgun'
+  gem 'foreman'
 end
 
 group :development, :test do

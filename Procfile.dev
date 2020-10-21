@@ -1,2 +1,2 @@
-front-end: yarn run dev
-back-end: bundle exec thin -R config.ru -p $PORT start
+front-end: yarn --cwd frontend/ serve
+back-end: export $(cat .env | xargs) && bundle exec rackup -p $SERVER_PORT
