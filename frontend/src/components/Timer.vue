@@ -19,14 +19,14 @@
         </div>
       </div>
       <div class="row">
-        <timer-switch @output="state => switchChecked = state" @switch-click="setTime"></timer-switch>
+        <timer-switch @switch-change="state => switchChecked = state" @switch-click="setTime"></timer-switch>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import TimerSwitch from './TimerSwitch.vue'
+  import TimerSwitch from './Timer/TimerSwitch.vue'
   import Notifier from '../services/notifier.js';
 
   const notifier = new Notifier();
