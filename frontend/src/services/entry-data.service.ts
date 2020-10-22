@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { SessionEntry } from "../types";
+
 const http = axios.create({
   baseURL: '/api',
   responseType: 'json',
@@ -7,7 +9,7 @@ const http = axios.create({
 });
 
 class EntryDataService {
-  async getAll(token: string): Promise<{}> {
+  async getAll(token: string): Promise<{entries: SessionEntry[]}> {
     const response = await http.get(
       '/tracker',
       { headers: { 'Authorization': `Bearer ${token}` } }
