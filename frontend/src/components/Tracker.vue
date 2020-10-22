@@ -38,6 +38,10 @@ export default defineComponent({
         state.entries = data.entries;
       });
     });
+
+    return {
+      state,
+    }
   }
 })
 </script>
