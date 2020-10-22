@@ -19,7 +19,7 @@ class UserAuthenticationService {
   private isAuthenticated(): boolean {
     if (this.payload === {} as Payload) return false;
 
-    return this.payload.user_id !== null;
+    return !!this.payload.user_id;
   }
 
   private readPayload(): Payload {
