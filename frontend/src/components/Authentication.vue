@@ -1,12 +1,21 @@
 <template></template>
 
-<script>
-  export default {
-    created() {
-      localStorage.setItem('token', this.$route.query.access_token);
+<script lang="ts">
+import { defineComponent, onMounted } from "vue";
+import { useRouter } from 'vue-router';
 
-      this.$router.push('/');
-      location.reload();
-    }
+export default defineComponent({
+  props: {
+    access_token: {
+      type: String,
+      default: null,
+    },
+  },
+  setup(props) {
+    onMounted(() => {
+      localStorage.setItem('token', props.access_token);
+      useRouter().push({ name: 'home' });
+    });
   }
+})
 </script>
