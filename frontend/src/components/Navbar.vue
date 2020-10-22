@@ -13,25 +13,19 @@
       <input type="checkbox" id="toggle">
 
       <div class="menu">
-        <a href="#" v-show="!state.isAuthenticated">
-          <router-link to="/login" exact>
-            <svg><use xlink:href="#twitter"></use></svg>
-            Login
-          </router-link>
-        </a>
-        <a href="#" v-show="state.isAuthenticated">
-          <router-link to="/tracker" exact>
-            Tracker
-          </router-link>
-        </a>
+        <router-link to="/login" v-show="!state.isAuthenticated" exact>
+          <svg><use xlink:href="#twitter"></use></svg>
+          Login
+        </router-link>
+        <router-link to="/tracker" v-show="state.isAuthenticated" exact>
+          Tracker
+        </router-link>
         <a href="#" v-show="state.isAuthenticated">
           {{ state.authenticatedUsername }}
         </a>
-        <a href="#" v-show="state.isAuthenticated">
-          <router-link to="/logout" exact>
-            Logout
-          </router-link>
-        </a>
+        <router-link to="/logout" v-show="state.isAuthenticated" exact>
+          Logout
+        </router-link>
       </div>
     </nav>
   </div>
@@ -74,7 +68,7 @@ nav {
   }
   & .title a {
     float: left;
-    margin: 3px 16px;
+    margin: 0px 16px;
   }
 
   & .menu {
@@ -131,7 +125,7 @@ nav {
       display: block;
 
       & a {
-        margin: 0 20px;
+        margin: -4px 20px;
         display: inline-block;
       }
     }
