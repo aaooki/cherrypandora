@@ -6,7 +6,7 @@ interface Payload {
 }
 
 class UserAuthenticationService {
-  token: string | null = '';
+  token: string = '';
   payload: Payload = {} as Payload;
   authenticated: boolean = false;
 
@@ -23,7 +23,7 @@ class UserAuthenticationService {
   }
 
   private readPayload(): Payload {
-    if (this.token === null) return {} as Payload;
+    if (this.token === '') return {} as Payload;
 
     let hashedPayload = this.token.split('.')[1];
     let payload       = atob(hashedPayload);
@@ -31,8 +31,8 @@ class UserAuthenticationService {
     return JSON.parse(payload);
   }
 
-  private readToken(): string | null {
-    let token = localStorage.getItem('token');
+  private readToken(): string {
+    let token = localStorage.getItem('token') || '';
 
     return token;
   }
