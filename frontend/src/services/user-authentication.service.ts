@@ -6,10 +6,12 @@ interface Payload {
 }
 
 class UserAuthenticationService {
+  token: string | null = '';
   payload: Payload = {} as Payload;
   authenticated: boolean = false;
 
   constructor() {
+    this.token         = this.readToken();
     this.payload       = this.readPayload();
     this.authenticated = this.isAuthenticated();
   }
@@ -21,13 +23,18 @@ class UserAuthenticationService {
   }
 
   private readPayload(): Payload {
-    let token = localStorage.getItem('token');
-    if (token === null) return {} as Payload;
+    if (this.token === null) return {} as Payload;
 
-    let hashedPayload = token.split('.')[1];
+    let hashedPayload = this.token.split('.')[1];
     let payload       = atob(hashedPayload);
 
     return JSON.parse(payload);
+  }
+
+  private readToken(): string | null {
+    let token = localStorage.getItem('token');
+
+    return token;
   }
 }
 

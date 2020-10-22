@@ -28,6 +28,8 @@
 <script>
   import TimerSwitch from './Timer/TimerSwitch.vue'
   import Notifier from '../services/notifier.js';
+import EntryDataService from '../services/entry-data.service';
+import UserAuthenticationService from '../services/user-authentication.service';
 
   const notifier = new Notifier();
 
@@ -112,10 +114,7 @@
         }
       },
       createEntry(length) {
-        let access_token = localStorage.getItem('token');
-        this.$http.post('/api/entry',
-          { length: length },
-          { headers: { 'Authorization': `Bearer ${access_token}` } })
+        EntryDataService.create(length, UserAuthenticationService.token);
       }
     }
   }
