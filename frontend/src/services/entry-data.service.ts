@@ -7,6 +7,17 @@ const http = axios.create({
 });
 
 class EntryDataService {
+  async getAll(token: string): Promise<{}> {
+    const response = await http.get(
+      '/tracker',
+      { headers: { 'Authorization': `Bearer ${token}` } }
+    );
+
+    const {data} = response;
+
+    return data;
+  }
+
   async create(length: number, token: string): Promise<{}> {
     const response = await http.post(
       '/entry',
