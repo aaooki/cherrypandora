@@ -16,11 +16,6 @@
 </script>
 
 <style scoped>
-  :root {
-    --switch-on-color: #1E824C;
-    --switch-off-color: #f04124;
-  }
-
   .switch {
     position: relative;
     display: inline-block;

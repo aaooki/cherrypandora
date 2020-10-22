@@ -122,52 +122,48 @@
 </script>
 
 <style scoped>
-  :root {
-    --white: #fefefe;
-    --black: #0a0a0a;
+#timer__box {
+  font-family: sans-serif;
+  display: inline-block;
+  font-size: 100px;
+  font-weight: 100;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  line-height: 1.5;
+
+  /* small screens */
+  @media screen and (max-width: 39.9375em) {
+    font-size: 40px;
   }
 
-  #timer__box {
-    font-family: sans-serif;
+  & > div {
+    padding: 15px;
+    border-radius: 3px;
+    background-color: var(--white);
     display: inline-block;
-    font-size: 100px;
-    font-weight: 100;
-    margin-top: 100px;
-    margin-bottom: 50px;
-    line-height: 1.5;
 
-    /* small screens */
-    @media screen and (max-width: 39.9375em) {
-      font-size: 40px;
-    }
-
-    & > div {
+    & input {
       padding: 15px;
-      border-radius: 3px;
-      background-color: var(--white);
       display: inline-block;
+      width: 150px;
+      max-width: 150px;
+      font-size: 100px;
+      border-style: none;
 
-      & input {
-        padding: 15px;
-        display: inline-block;
-        width: 150px;
-        max-width: 150px;
-        border-style: none;
-
-        /* small screens */
-        @media screen and (max-width: 39.9375em) {
-          width: 80px;
-          max-width: 80px;
-        }
+      /* small screens */
+      @media screen and (max-width: 39.9375em) {
+        width: 80px;
+        max-width: 80px;
       }
     }
   }
+}
 
-  [contenteditable="true"] { outline: 1px dashed var(--black); }
+[contenteditable="true"] { outline: 1px dashed var(--black); }
 
-  /* contenteditable for mobile browsers */
-  [contenteditable] {
-    -webkit-user-select: text;
-    user-select: text;
-  }
+/* contenteditable for mobile browsers */
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
 </style>

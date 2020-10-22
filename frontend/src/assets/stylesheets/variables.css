@@ -1,7 +1,11 @@
 :root {
-  --white-smoke: #ECECEC;
-  --light-gray:  #e6e6e6;
-  --light-blue:  #2199e8;
+  --white-smoke:      #ECECEC;
+  --white:            #fefefe;
+  --black:            #0a0a0a;
+  --light-gray:       #e6e6e6;
+  --light-blue:       #2199e8;
+  --switch-on-color:  #1E824C;
+  --switch-off-color: #f04124;
 
   --navbar-height: 70px;
 
